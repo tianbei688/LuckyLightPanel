@@ -473,7 +473,7 @@ const iconClass = computed(() => {
   gap: 0.5rem;
 }
 
-/* 霓虹图标 */
+/* 霞虹图标 */
 .neon-icon {
   flex-shrink: 0;
   overflow: hidden;
@@ -482,6 +482,17 @@ const iconClass = computed(() => {
   justify-content: center;
   position: relative;
   transition: all var(--duration-normal) var(--ease-spring);
+  filter: brightness(var(--icon-brightness, 1));
+}
+
+/* 深色模式下的图标蒙版 */
+.neon-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, var(--icon-overlay-opacity, 0));
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 .neon-icon.size-sm {

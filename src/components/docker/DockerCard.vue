@@ -641,6 +641,18 @@ const cardClass = computed(() => {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  filter: brightness(var(--icon-brightness, 1));
+  position: relative;
+}
+
+/* 深色模式下的图标蒙版 */
+.icon-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, var(--icon-overlay-opacity, 0));
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 .icon-img {
@@ -906,6 +918,17 @@ const cardClass = computed(() => {
   justify-content: center;
   overflow: hidden;
   flex-shrink: 0;
+  filter: brightness(var(--icon-brightness, 1));
+  position: relative;
+}
+
+.compact-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, var(--icon-overlay-opacity, 0));
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 .icon-default-sm {
@@ -1022,6 +1045,17 @@ const cardClass = computed(() => {
   justify-content: center;
   overflow: hidden;
   flex-shrink: 0;
+  filter: brightness(var(--icon-brightness, 1));
+  position: relative;
+}
+
+.list-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, var(--icon-overlay-opacity, 0));
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 .list-content {
@@ -1160,6 +1194,16 @@ const cardClass = computed(() => {
   overflow: hidden;
   position: relative;
   transition: transform 300ms var(--ease-spring);
+  filter: brightness(var(--icon-brightness, 1));
+}
+
+.minimal-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, var(--icon-overlay-opacity, 0));
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 .docker-card:hover .minimal-icon {
