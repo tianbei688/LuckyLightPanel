@@ -113,6 +113,12 @@
       "description": "是否在站点页面显示搜索引擎搜索栏",
       "default": false
     },
+    "showHeader": {
+      "type": "boolean",
+      "label": "显示页头",
+      "description": "是否显示页头区域，关闭后仅在右上角保留设置入口",
+      "default": true
+    },
     "searchEngine": {
       "type": "select",
       "label": "搜索引擎",

@@ -53,6 +53,7 @@ const DEFAULT_CONFIG: UserConfig = {
   showDescription: true,
   showTime: true,
   showSearch: false,
+  showHeader: true,
   searchEngine: 'bing',
   customSearchUrl: '',
   tabGroups: { ...DEFAULT_TAB_GROUPS },
@@ -152,6 +153,7 @@ export const useConfigStore = defineStore('config', () => {
   const showDescription = computed(() => config.value.showDescription)
   const showTime = computed(() => config.value.showTime)
   const showSearch = computed(() => config.value.showSearch)
+  const showHeader = computed(() => config.value.showHeader)
   const searchEngine = computed(() => config.value.searchEngine)
   const customSearchUrl = computed(() => config.value.customSearchUrl)
   // 当前标签页的搜索关键字
@@ -206,7 +208,7 @@ export const useConfigStore = defineStore('config', () => {
     const validKeys: (keyof UserConfig)[] = [
       'theme', 'background', 'layout', 'dockerLayout', 'luckyServicesLayout',
       'networkMode', 'currentTab', 'showDescription', 'showTime',
-      'showSearch', 'searchEngine', 'customSearchUrl'
+      'showSearch', 'showHeader', 'searchEngine', 'customSearchUrl'
     ]
 
     let hasChanges = false
@@ -464,6 +466,7 @@ export const useConfigStore = defineStore('config', () => {
     showDescription,
     showTime,
     showSearch,
+    showHeader,
     searchEngine,
     customSearchUrl,
     currentSearchKeyword,

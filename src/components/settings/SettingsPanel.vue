@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useConfigStore, PRESET_BACKGROUNDS } from '@/stores/config'
-import { X, Sun, Moon, Pencil, RotateCcw, Palette, Eye, Check, Image, Github, Search, Globe } from 'lucide-vue-next'
+import { X, Sun, Moon, Pencil, RotateCcw, Palette, Eye, Check, Image, Github, Search, Globe, Layout } from 'lucide-vue-next'
 import type { ThemeMode } from '@/types'
 
 // 导入本地图标
@@ -188,6 +188,20 @@ function saveCustomSearchUrl() {
             <h3 class="section-title">显示</h3>
           </div>
           <div class="toggle-options">
+            <!-- 显示页头 -->
+            <label class="toggle-item">
+              <span class="toggle-label">显示页头</span>
+              <div 
+                class="switch-modern"
+                :class="{ active: configStore.showHeader }"
+                @click="configStore.updateConfig('showHeader', !configStore.showHeader)"
+              />
+            </label>
+            <!-- 隐藏页头时的提示 -->
+            <p v-if="!configStore.showHeader" class="toggle-hint">
+              关闭后可在页面右上角找到设置入口
+            </p>
+            
             <!-- 显示描述 -->
             <label class="toggle-item">
               <span class="toggle-label">显示描述</span>
@@ -625,6 +639,16 @@ function saveCustomSearchUrl() {
 .toggle-label {
   font-size: 0.875rem;
   color: hsl(var(--text-secondary));
+}
+
+.toggle-hint {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  color: hsl(var(--neon-cyan));
+  background: hsl(var(--neon-cyan) / 0.1);
+  border-radius: 0.5rem;
+  border-left: 2px solid hsl(var(--neon-cyan) / 0.5);
 }
 
 /* 搜索引擎网格 */

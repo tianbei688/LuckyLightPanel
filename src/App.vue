@@ -14,6 +14,7 @@ import SettingsPanel from '@/components/settings/SettingsPanel.vue'
 import BackToTop from '@/components/common/BackToTop.vue'
 import LinkDropdown from '@/components/common/LinkDropdown.vue'
 import SearchBar from '@/components/common/SearchBar.vue'
+import { Settings } from 'lucide-vue-next'
 
 const navStore = useNavStore()
 const configStore = useConfigStore()
@@ -36,6 +37,7 @@ const currentTab = computed(() => configStore.currentTab)
 const hasSites = computed(() => navStore.sitesEnabled && navStore.allSites.length > 0)
 const hasDocker = computed(() => navStore.dockerEnabled && navStore.allContainers.length > 0)
 const hasLuckyServices = computed(() => navStore.luckyServicesEnabled && navStore.allLuckyServices.length > 0)
+const showHeader = computed(() => configStore.showHeader)
 
 // 获取第一个可用的标签页
 function getFirstAvailableTab(): TabType | null {
@@ -162,7 +164,16 @@ onMounted(async () => {
   <!-- 主内容 -->
   <div v-else class="app-main">
     <!-- 页头 -->
-    <AppHeader />
+    <AppHeader v-if="showHeader" />
+
+    <!-- 浮动设置按钮（仅在隐藏页头时显示） -->
+    <button 
+      v-if="!showHeader" 
+      class="floating-settings-btn"
+      @click="configStore.toggleSettingsPanel(true)"
+    >
+      <Settings class="floating-settings-icon" />
+    </button>
 
     <!-- 搜索栏（仅在站点页面显示） -->
     <SearchBar v-if="configStore.showSearch && currentTab === 'sites'" />
@@ -213,5 +224,47 @@ onMounted(async () => {
   .main-content {
     padding: 0.75rem 1.5rem 2.5rem;
   }
+}
+
+/* 浮动设置按钮 */
+.floating-settings-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--glass-border) / 0.3);
+  background: hsl(var(--glass-bg) / 0.3);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  color: hsl(var(--text-muted) / 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms ease;
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+.floating-settings-btn:hover {
+  opacity: 1;
+  color: hsl(var(--neon-cyan));
+  border-color: hsl(var(--neon-cyan) / 0.4);
+  background: hsl(var(--glass-bg));
+  box-shadow: 0 0 15px hsl(var(--neon-cyan) / 0.3);
+  transform: scale(1.05);
+}
+
+.floating-settings-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 500ms;
+}
+
+.floating-settings-btn:hover .floating-settings-icon {
+  transform: rotate(90deg);
 }
 </style>

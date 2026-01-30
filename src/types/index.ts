@@ -214,6 +214,7 @@ export interface UserConfig {
   showDescription: boolean
   showTime: boolean
   showSearch: boolean
+  showHeader: boolean
   searchEngine: string
   customSearchUrl: string
   tabGroups: TabGroups
