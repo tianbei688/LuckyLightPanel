@@ -77,15 +77,18 @@ const groupedServices = computed(() => {
   return result
 })
 
-// 分组列表（只显示有服务的分组）
+// 分组列表（只显示有服务的分组，并统计数量）
 const groups = computed(() => {
   const allServices = navStore.allLuckyServices
-  const nonEmptyGroups = navStore.luckyServicesGroups.filter((g: Group) => 
-    allServices.some((s: LuckyService) => s.groupKey === g.key)
-  )
+  const groupsWithCount = navStore.luckyServicesGroups
+    .map((g: Group) => {
+      const count = allServices.filter((s: LuckyService) => s.groupKey === g.key).length
+      return { ...g, count }
+    })
+    .filter(g => g.count > 0)
   return [
-    { key: 'all', name: '全部', icon: '' },
-    ...nonEmptyGroups
+    { key: 'all', name: '全部', icon: '', count: allServices.length },
+    ...groupsWithCount
   ]
 })
 

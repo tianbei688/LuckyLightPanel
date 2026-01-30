@@ -143,7 +143,8 @@ onUnmounted(() => {
         <!-- 左侧：点击切换单选 -->
         <button class="option-main" @click="onGroupClick(group.key)">
           <i :class="getGroupIconClass(group.icon)" class="option-icon"></i>
-          <span>{{ group.name }}</span>
+          <span class="option-name">{{ group.name }}</span>
+          <span v-if="group.count !== undefined" class="option-count">{{ group.count }}</span>
         </button>
         <!-- 右侧：复选框，点击切换多选 -->
         <button 
@@ -360,6 +361,20 @@ button.group-option:hover {
   text-align: left;
 }
 
+.option-name {
+  flex: 1;
+}
+
+.option-count {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1px 6px;
+  border-radius: 8px;
+  margin-left: 4px;
+}
+
 /* 右侧复选框 */
 .option-checkbox {
   display: flex;
@@ -425,6 +440,11 @@ button.group-option:hover {
 }
 
 [data-theme="light"] .dropdown-divider {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .option-count {
+  color: rgba(0, 0, 0, 0.45);
   background: rgba(0, 0, 0, 0.06);
 }
 

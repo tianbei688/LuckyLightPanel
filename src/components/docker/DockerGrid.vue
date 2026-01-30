@@ -78,15 +78,18 @@ const groupedContainers = computed(() => {
   return result
 })
 
-// 分组列表（只显示有容器的分组）
+// 分组列表（只显示有容器的分组，并统计数量）
 const groups = computed(() => {
   const allContainers = navStore.allContainers
-  const nonEmptyGroups = navStore.dockerGroups.filter((g: Group) => 
-    allContainers.some((c: DockerContainer) => c.groupKey === g.key)
-  )
+  const groupsWithCount = navStore.dockerGroups
+    .map((g: Group) => {
+      const count = allContainers.filter((c: DockerContainer) => c.groupKey === g.key).length
+      return { ...g, count }
+    })
+    .filter(g => g.count > 0)
   return [
-    { key: 'all', name: '全部', icon: '' },
-    ...nonEmptyGroups
+    { key: 'all', name: '全部', icon: '', count: allContainers.length },
+    ...groupsWithCount
   ]
 })
 

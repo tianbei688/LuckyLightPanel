@@ -87,15 +87,18 @@ const groupedSites = computed(() => {
   return result
 })
 
-// 分组列表（只显示有站点的分组）
+// 分组列表（只显示有站点的分组，并统计数量）
 const groups = computed(() => {
   const allSites = navStore.allSites
-  const nonEmptyGroups = navStore.siteGroups.filter((g: Group) => 
-    allSites.some((s: Site) => s.groupKey === g.key)
-  )
+  const groupsWithCount = navStore.siteGroups
+    .map((g: Group) => {
+      const count = allSites.filter((s: Site) => s.groupKey === g.key).length
+      return { ...g, count }
+    })
+    .filter(g => g.count > 0)
   return [
-    { key: 'all', name: '全部', icon: '' },
-    ...nonEmptyGroups
+    { key: 'all', name: '全部', icon: '', count: allSites.length },
+    ...groupsWithCount
   ]
 })
 

@@ -27,6 +27,7 @@ export interface Group {
   name: string
   icon?: string
   order?: number
+  count?: number
 }
 
 // ============ 站点类型 ============
