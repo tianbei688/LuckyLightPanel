@@ -156,7 +156,7 @@ onUnmounted(() => {
 .network-dropdown {
   position: absolute;
   top: calc(100% + 8px);
-  right: 0;
+  left: 50%;
   min-width: 120px;
   max-width: 160px;
   background: rgba(15, 20, 30, 0.85);
@@ -170,7 +170,8 @@ onUnmounted(() => {
   padding: 6px;
   opacity: 0;
   visibility: hidden;
-  transform: scale(0.95);
+  transform: translateX(-50%) scale(0.95);
+  transform-origin: top center;
   transition: all 0.15s ease;
   z-index: 100;
 }
@@ -178,7 +179,7 @@ onUnmounted(() => {
 .network-dropdown-wrapper.open .network-dropdown {
   opacity: 1;
   visibility: visible;
-  transform: scale(1);
+  transform: translateX(-50%) scale(1);
 }
 
 /* 下拉选项 */

@@ -326,7 +326,7 @@ function getMemoryBarWidth(value: number): string {
 .overview-panel {
   position: absolute;
   top: calc(100% + 10px);
-  right: 0;
+  left: 50%;
   width: 340px;
   background: rgba(15, 20, 30, 0.88);
   backdrop-filter: blur(24px) saturate(180%);
@@ -339,7 +339,8 @@ function getMemoryBarWidth(value: number): string {
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px) scale(0.95);
+  transform: translateX(-50%) translateY(-10px) scale(0.95);
+  transform-origin: top center;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 200;
   overflow: hidden;
@@ -348,7 +349,7 @@ function getMemoryBarWidth(value: number): string {
 .overview-wrapper.open .overview-panel {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0) scale(1);
+  transform: translateX(-50%) translateY(0) scale(1);
 }
 
 /* 面板头部 */

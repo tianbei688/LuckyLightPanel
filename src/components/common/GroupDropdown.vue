@@ -276,7 +276,7 @@ onUnmounted(() => {
 .group-dropdown {
   position: absolute;
   top: calc(100% + 8px);
-  right: 0;
+  left: 50%;
   min-width: 160px;
   max-width: 220px;
   max-height: 320px;
@@ -292,7 +292,8 @@ onUnmounted(() => {
   padding: 6px;
   opacity: 0;
   visibility: hidden;
-  transform: scale(0.95);
+  transform: translateX(-50%) scale(0.95);
+  transform-origin: top center;
   transition: all 0.15s ease;
   z-index: 100;
 }
@@ -300,7 +301,7 @@ onUnmounted(() => {
 .group-dropdown-wrapper.open .group-dropdown {
   opacity: 1;
   visibility: visible;
-  transform: scale(1);
+  transform: translateX(-50%) scale(1);
 }
 
 /* 下拉选项容器 */
