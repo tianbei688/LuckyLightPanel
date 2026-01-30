@@ -242,6 +242,16 @@ const gridClass = computed(() => {
   color: hsl(var(--text-secondary));
 }
 
+/* 深色主题分组标题 - 提高亮度增强可读性 */
+[data-theme="dark"] .group-title {
+  color: hsl(210 40% 85%);
+}
+
+/* 素描深色主题分组标题 */
+[data-theme="sketch-dark"] .group-title {
+  color: hsl(40 12% 80%);
+}
+
 /* 网格布局 */
 .site-grid {
   display: grid;
