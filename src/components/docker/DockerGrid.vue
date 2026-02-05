@@ -323,12 +323,24 @@ onMounted(() => {
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 0.5rem;
+  min-width: 0;
 }
 
 .filter-bar-right {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .filter-bar {
+    gap: 0.5rem;
+  }
+  
+  .filter-bar-right {
+    gap: 0.5rem;
+  }
 }
 
 .group-section {
