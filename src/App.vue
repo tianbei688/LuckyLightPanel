@@ -179,7 +179,7 @@ onMounted(async () => {
     <SearchBar v-if="configStore.showSearch && currentTab === 'sites'" />
 
     <!-- 主区域 -->
-    <main class="main-content">
+    <main class="main-content" :class="{ 'no-header': !showHeader }">
       <!-- 内容标签页 -->
       <ContentTabs class="mb-16" />
 
@@ -220,9 +220,17 @@ onMounted(async () => {
   padding: 0.75rem 1rem 2rem;
 }
 
+.main-content.no-header {
+  padding-top: 1rem;
+}
+
 @media (min-width: 640px) {
   .main-content {
     padding: 0.75rem 1.5rem 2.5rem;
+  }
+  
+  .main-content.no-header {
+    padding-top: 1.5rem;
   }
 }
 

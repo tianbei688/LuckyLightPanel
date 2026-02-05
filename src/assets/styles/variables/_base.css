@@ -3,7 +3,14 @@
    LightPanel Pro - Cyberpunk Glass Design
    ============================================ */
 
+/* 字体系统 */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+
 :root {
+  /* 字体 */
+  --font-sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'Fira Code', ui-monospace, 'SF Mono', monospace;
+
   /* 布局 */
   --header-height: 72px;
   --card-gap: 20px;
@@ -18,9 +25,9 @@
 
   /* 动画时间 */
   --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 400ms;
-  --duration-slower: 600ms;
+  --duration-normal: 200ms;
+  --duration-slow: 350ms;
+  --duration-slower: 500ms;
 
   /* 缓动函数 */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);

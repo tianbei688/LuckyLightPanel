@@ -265,23 +265,9 @@ const iconClass = computed(() => {
     :class="cardClass"
     @click="handleClick"
   >
-    <!-- 霓虹边框效果 -->
-    <div 
-      class="card-glow"
-      :style="{ '--shadow-color': `hsl(var(--icon-placeholder-bg))` }"
-    />
-    
     <!-- 边框发光线 -->
     <div class="card-border-glow" />
-    
-    <!-- 背景光晕装饰 -->
-    <div 
-      class="card-bg-glow"
-      :style="{
-        background: `hsl(var(--icon-placeholder-bg))`
-      }"
-    />
-    
+      
     <!-- 内容容器 -->
     <div class="card-inner" :class="{ 'layout-list': layout === 'list', 'layout-minimal': layout === 'minimal', 'layout-compact': layout === 'compact' }">
       <!-- 图标 -->
@@ -389,7 +375,7 @@ const iconClass = computed(() => {
 }
 
 .cyber-card:hover {
-  transform: translateY(-4px) scale(1.01);
+  transform: translateY(-3px);
   background: hsl(var(--site-card-bg-hover));
   border-color: hsl(var(--site-card-border-hover));
   box-shadow: var(--site-card-shadow-hover);
@@ -397,24 +383,6 @@ const iconClass = computed(() => {
 
 .cyber-card:hover::before {
   opacity: var(--site-card-shine-hover);
-}
-
-/* 沛虹边框发光效果 */
-.card-glow {
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-lg);
-  opacity: 0;
-  transition: opacity 400ms ease;
-  pointer-events: none;
-  box-shadow: 
-    0 0 24px -4px var(--shadow-color),
-    inset 0 0 16px -8px var(--shadow-color, hsl(var(--neon-cyan) / 0.2));
-  z-index: 2;
-}
-
-.cyber-card:hover .card-glow {
-  opacity: 0.85;
 }
 
 /* 边框发光线 - 更精细 */
@@ -441,25 +409,6 @@ const iconClass = computed(() => {
 
 .cyber-card:hover .card-border-glow {
   opacity: 1;
-}
-
-/* 背景光晕装饰 - 更柔和 */
-.card-bg-glow {
-  position: absolute;
-  top: -20%;
-  right: -20%;
-  width: 50%;
-  height: 50%;
-  border-radius: 50%;
-  filter: blur(40px);
-  opacity: 0;
-  transition: opacity 500ms ease;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.cyber-card:hover .card-bg-glow {
-  opacity: 0.25;
 }
 
 /* 内容容器 */

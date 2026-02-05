@@ -221,53 +221,45 @@ function openSettings() {
    ============================================ */
 
 .app-header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 50;
   height: var(--header-height, 3.5rem);
+  margin: 0.75rem 1rem 0;
+  border-radius: 1rem;
 }
 
 /* 背景层 - 自适应毛玻璃效果 */
 .header-bg {
   position: absolute;
   inset: 0;
-  background: hsl(var(--bg-page) / 0.65);
-  backdrop-filter: blur(24px) saturate(1.5);
-  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  background: hsl(var(--bg-elevated) / 0.8);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid hsl(var(--border-subtle) / 0.3);
+  border-radius: inherit;
 }
 
 /* 顶部高光 - 柔和白边 */
 .header-highlight {
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 1rem;
+  right: 1rem;
   height: 1px;
+  border-radius: 1px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    hsl(var(--text-primary) / 0.04) 25%,
-    hsl(var(--text-primary) / 0.08) 50%,
-    hsl(var(--text-primary) / 0.04) 75%,
+    hsl(var(--text-primary) / 0.06) 25%,
+    hsl(var(--text-primary) / 0.1) 50%,
+    hsl(var(--text-primary) / 0.06) 75%,
     transparent 100%
   );
 }
 
-/* 底部分割线 - 中性渐变 */
+/* 底部分割线 - 隐藏（浮动样式不需要） */
 .header-divider {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    hsl(var(--border-subtle) / 0.4) 20%,
-    hsl(var(--border-subtle) / 0.6) 50%,
-    hsl(var(--border-subtle) / 0.4) 80%,
-    transparent 100%
-  );
+  display: none;
 }
 
 /* 内容层 */

@@ -51,7 +51,7 @@
 }
 
 .glass-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-4px);
   box-shadow: var(--card-shadow-hover), var(--card-glow-hover);
   border-color: hsl(var(--neon-cyan) / 0.3);
 }
@@ -81,7 +81,7 @@
 }
 
 .glass-card-neon:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
   border-color: hsl(var(--neon-cyan) / 0.5);
   box-shadow: 
     var(--card-shadow-hover),

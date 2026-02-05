@@ -39,10 +39,10 @@
     0 16px 40px -8px rgba(0, 100, 200, 0.1);
   --card-glow: 0 0 40px -10px rgba(var(--primary-rgb), 0.15);
 
-  /* 文字颜色 */
-  --text-primary: 220 45% 18%;
-  --text-secondary: 220 25% 38%;
-  --text-muted: 220 18% 50%;
+  /* 文字颜色 - 增强对比度 */
+  --text-primary: 220 45% 12%;
+  --text-secondary: 220 25% 32%;
+  --text-muted: 220 18% 45%;
 
   /* 边框和背景 */
   --border-color: 220 18% 82%;
