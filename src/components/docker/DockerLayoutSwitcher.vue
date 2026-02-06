@@ -260,6 +260,7 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.85);
   cursor: pointer;
   transition: all 0.15s ease;
+  position: relative;
 }
 
 .layout-option:hover {
@@ -269,6 +270,18 @@ onUnmounted(() => {
 .layout-option.active {
   background: rgba(249, 115, 22, 0.15);
   color: #f97316;
+}
+
+.layout-option.active::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f97316;
+  box-shadow: 0 0 8px rgba(249, 115, 22, 0.6);
 }
 
 .layout-option.active .layout-preview {
@@ -533,6 +546,11 @@ onUnmounted(() => {
   background: rgba(0, 0, 0, 0.05);
 }
 
+[data-theme="sketch-light"] .layout-option.active::after {
+  background: rgba(60, 50, 40, 0.6);
+  box-shadow: 0 0 6px rgba(60, 50, 40, 0.4);
+}
+
 [data-theme="sketch-light"] .layout-preview {
   border-color: rgba(0, 0, 0, 0.12);
   background: rgba(0, 0, 0, 0.04);
@@ -575,6 +593,11 @@ onUnmounted(() => {
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="sketch-dark"] .layout-option.active::after {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
 }
 
 [data-theme="sketch-dark"] .layout-preview {
