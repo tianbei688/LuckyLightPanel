@@ -20,5 +20,33 @@
 <body>
   <div id="app"></div>
   <script type="module" src="/src/main.ts"></script>
+  <!-- ==================== 备案号底部 ==================== -->
+<style>
+.beian-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  padding: 12px 0 8px;
+  background: rgba(255,255,255,0.95);
+  z-index: 9999;
+  border-top: 1px solid #eee;
+  pointer-events: none;
+}
+@media (prefers-color-scheme: dark) {
+  .beian-footer {
+    background: rgba(30,30,30,0.95);
+    color: #bbb;
+    border-top-color: #444;
+  }
+}
+</style>
+<div class="beian-footer">
+  © 你的名字 | 粤ICP备 xxxxxxxx 号 | 粤公网安备 xxxxxxxxxxxx 号
+</div>
+<!-- ==================== 结束 ==================== -->
 </body>
 </html>
