@@ -32,11 +32,12 @@
   line-height: 1;
   color: #777;
   padding: 1px 0 0;
-  background: rgba(255,255,255,0.36) !important;     /* 更透 */
+  background: rgba(255,255,255,0.20) !important;
   backdrop-filter: blur(20px) saturate(180%) contrast(110%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) contrast(110%) !important;
-  border-top: 1px solid rgba(255,255,255,0.30) !important;
-  box-shadow: 0 -1px 0 rgba(255,255,255,0.45) inset, 0 -2px 6px rgba(0,0,0,0.04);
+  /* 去掉白边 */
+  border-top: none !important;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.25) inset, 0 -2px 6px rgba(0,0,0,0.04);
   z-index: 2147483647 !important;
 }
 .beian-footer a {
@@ -48,10 +49,9 @@
 }
 @media (prefers-color-scheme: dark) {
   .beian-footer {
-    background: rgba(15,15,25,0.22) !important;     /* 更透 */
+    background: rgba(15,15,25,0.4) !important;
     color: #bbb;
-    border-top-color: rgba(255,255,255,0.12) !important;
-    box-shadow: 0 -1px 0 rgba(255,255,255,0.18) inset, 0 -2px 6px rgba(0,0,0,0.25);
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.12) inset, 0 -2px 6px rgba(0,0,0,0.25);
   }
   .beian-footer a {
     color: #88ccff;
