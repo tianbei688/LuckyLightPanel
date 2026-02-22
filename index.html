@@ -68,42 +68,6 @@ html, body, #app {
   <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#555 !important; text-decoration:none !important;">粤ICP备xxxxxxxx号</a> | 
   邮箱: <a href="mailto:tianbei@nasnie.cn" style="color:#555 !important;">tianbei@nasnie.cn</a>
 </div>
-<script>
-function forceFixFooter() {
-  let footer = document.querySelector('.beian-footer');
-  if (!footer) return;
-
-  // 强制移到 body 最外层（脱离任何滚动容器）
-  if (footer.parentNode !== document.body) {
-    document.body.appendChild(footer);
-  }
-
-  // 每帧强制样式
-  footer.style.position = 'fixed';
-  footer.style.bottom = '0';
-  footer.style.left = '0';
-  footer.style.width = '100%';
-  footer.style.zIndex = '2147483647';
-  footer.style.margin = '0';
-  footer.style.transform = 'none';
-}
-
-function startLock() {
-  forceFixFooter();
-  requestAnimationFrame(startLock);   // 每帧锁定
-}
-
-// 多重启动
-window.addEventListener('load', startLock);
-window.addEventListener('DOMContentLoaded', startLock);
-setTimeout(startLock, 500);
-setTimeout(startLock, 1500);
-setInterval(forceFixFooter, 80);   // 额外保险
-
-// 监控Vue动态渲染
-const observer = new MutationObserver(forceFixFooter);
-observer.observe(document.body, { childList: true, subtree: true });
-</script>
 <!-- ==================== 结束 ==================== -->
 </body>
 </html>
