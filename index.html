@@ -68,6 +68,24 @@ html, body, #app {
   <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#555 !important; text-decoration:none !important;">粤ICP备xxxxxxxx号</a> | 
   邮箱: <a href="mailto:tianbei@nasnie.cn" style="color:#555 !important;">tianbei@nasnie.cn</a>
 </div>
+<script>
+// JS强制固定（防止 Vue 滚动层干扰）
+function lockFooter() {
+  const footer = document.querySelector('.beian-footer');
+  if (footer) {
+    footer.style.position = 'fixed';
+    footer.style.bottom = '0';
+    footer.style.left = '0';
+    footer.style.width = '100%';
+    footer.style.zIndex = '2147483647';
+  }
+  // 给主内容加内边距，避免遮挡
+  const app = document.getElementById('app');
+  if (app) app.style.paddingBottom = '38px';
+}
+window.addEventListener('load', lockFooter);
+setTimeout(lockFooter, 800);  // 额外保险，Vue 渲染完成后再次锁定
+</script>
 <!-- ==================== 结束 ==================== -->
 </body>
 </html>
