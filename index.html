@@ -32,12 +32,11 @@
   line-height: 1;
   color: #777;
   padding: 1px 0 0;
-  background: rgba(255,255,255,0.20) !important;
+  background: rgba(255,255,255,0.60) !important;     /* 透明度 0.6 */
   backdrop-filter: blur(20px) saturate(180%) contrast(110%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) contrast(110%) !important;
-  /* 去掉白边 */
   border-top: none !important;
-  box-shadow: 0 -1px 0 rgba(255,255,255,0.25) inset, 0 -2px 6px rgba(0,0,0,0.04);
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.35) inset, 0 -2px 6px rgba(0,0,0,0.05);
   z-index: 2147483647 !important;
 }
 .beian-footer a {
@@ -49,9 +48,9 @@
 }
 @media (prefers-color-scheme: dark) {
   .beian-footer {
-    background: rgba(15,15,25,0.4) !important;
+    background: rgba(15,15,25,0.65) !important;     /* 暗模式 0.65 */
     color: #bbb;
-    box-shadow: 0 -1px 0 rgba(255,255,255,0.12) inset, 0 -2px 6px rgba(0,0,0,0.25);
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.15) inset, 0 -2px 6px rgba(0,0,0,0.25);
   }
   .beian-footer a {
     color: #88ccff;
