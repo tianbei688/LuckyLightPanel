@@ -22,21 +22,28 @@
   <script type="module" src="/src/main.ts"></script>
 <!-- ==================== 备案号底部（可点击跳转版） ==================== -->
 <style>
+html, body, #app {
+  height: 100% !important;
+  margin: 0 !important;
+  padding-bottom: 38px !important;   /* 给内容留空间，防止被底部遮挡 */
+}
+
 .beian-footer {
-  position: fixed;           /* 固定在屏幕底部，不随滚动移动 */
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
   text-align: center;
   font-size: 10.5px;
   line-height: 1.1;
   color: #666;
   padding: 4px 0 2px;
-  background: rgba(255,255,255,0.68);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(255,255,255,0.6);
-  z-index: 9999;
+  background: rgba(255,255,255,0.68) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-top: 1px solid rgba(255,255,255,0.6) !important;
+  z-index: 2147483647 !important;   /* 浏览器最大层级，确保不被任何卡片盖住 */
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
 }
 .beian-footer a {
   color: #0066cc;
@@ -47,7 +54,7 @@
 }
 @media (prefers-color-scheme: dark) {
   .beian-footer {
-    background: rgba(20,20,30,0.78);
+    background: rgba(20,20,30,0.78) !important;
     color: #aaa;
     border-top-color: rgba(255,255,255,0.1);
   }
